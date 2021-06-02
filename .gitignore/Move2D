@@ -18,4 +18,12 @@ public class Move2D : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f ,0f);
         transform.position += movement * Time.deltaTime * moveSpeed;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Coin")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
